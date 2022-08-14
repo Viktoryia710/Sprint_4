@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class rentPage {
-        private final WebDriver driver;
+public class RentPage {
+    private final WebDriver driver;
 
     //локаторы полей формы аренды
 
@@ -36,37 +36,35 @@ public class rentPage {
     //локатор заголовка формы "Заказа оформлен"
     private final By orderModalFinal = By.xpath(".//div[@class='Order_ModalHeader__3FDaJ'  and contains(text(),'Заказ оформлен')]");
 
-    private final By okButton =  By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM'  and contains(text(),'Да')]");
+    private final By okButton = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM'  and contains(text(),'Да')]");
 
     // методы зполнения полей формы Аренды
-    public rentPage(WebDriver driver) {
+    public RentPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void setFieldData(String date){
+    public void setFieldData(String date) {
         driver.findElement(fieldData).clear();
         driver.findElement(fieldData).sendKeys(date);
     }
 
-    public void setFieldPeriod(int i){
+    public void setFieldPeriod(int i) {
         driver.findElement(fieldPeriod).click();
-        if (i==0){
+        if (i == 0) {
             driver.findElement(fieldPeriodSelectedOne).click();
-        }else {
-            driver.findElement(fieldPeriodSelectedTwo).click();
         }
 
     }
 
-    public void setFieldColor(int i){
+    public void setFieldColor(int i) {
         if (i == 0) {
             driver.findElement(fieldColorBlack).click();
-        }else {
+        } else {
             driver.findElement(fieldColorGrey).click();
         }
     }
 
-    public void setFieldComent(String coment){
+    public void setFieldComent(String coment) {
         driver.findElement(fieldComent).sendKeys(coment);
     }
 
@@ -87,10 +85,11 @@ public class rentPage {
     public void clickOkButton() {
         driver.findElement(okButton).click();
     }
-    public void setOrderModalFinal(){
+
+    public void setOrderModalFinal() {
         driver.findElement(orderModalFinal);
     }
 
 
-    }
+}
 

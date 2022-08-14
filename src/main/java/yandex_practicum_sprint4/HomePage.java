@@ -1,4 +1,5 @@
 package yandex_practicum_sprint4;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -6,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class HomePage {
     private final WebDriver driver;
 
-    private final By CookieButton = By.id("rcc-confirm-button");
+    private final By cookieButton = By.id("rcc-confirm-button");
 
     //локатор списка  «Вопросы о важном»
     private final By faqQuestion = By.className("accordion__button");
@@ -73,9 +74,9 @@ public class HomePage {
 
     public void clickCookieButton() {
         // получаем список элементов,если он не пустой
-        int i = driver.findElements(CookieButton).size();
+        int i = driver.findElements(cookieButton).size();
         if (i != 0)
-            driver.findElement(CookieButton).click();
+            driver.findElement(cookieButton).click();
     }
 
     // метод ожидания кликабильности списка «Вопросы о важном»
@@ -179,20 +180,24 @@ public class HomePage {
         new WebDriverWait(driver, 3)
                 .until(ExpectedConditions.elementToBeClickable(orderButtonUpPage));
     }
+
     // клик по кнопке Заказать вверху
     public void clickOrderButtonUpPage() {
         driver.findElement(orderButtonUpPage).click();
     }
+
     //скрол до конпки Заказать снизу
     public void scrollToButtonDownPage() {
         WebElement element = driver.findElement(orderButtonDownPageMidle);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", element);
     }
+
     // метод ожидания кликабильности Заказать снизу
     public void waitForLoadOrderButtonDownPage() {
         new WebDriverWait(driver, 20)
                 .until(ExpectedConditions.elementToBeClickable(orderButtonDownPageMidle));
     }
+
     // клик по кнопке Заказать снизу
     public void clickOrderButtonDownPage() {
         driver.findElement(orderButtonDownPageMidle).click();

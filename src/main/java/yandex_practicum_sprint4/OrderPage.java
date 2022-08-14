@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 //страница с персональными данными
-public class orderPage {
+public class OrderPage {
     private final WebDriver driver;
     //локатор поля имя
     private final By fieldName = By.xpath(".//input[@placeholder='* Имя']");
@@ -27,31 +27,31 @@ public class orderPage {
     //кнопка далее
     private final By buttonNext = By.xpath("//button[text()='Далее']");
 
-    public orderPage(WebDriver driver) {
+    public OrderPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void setFieldName(String name){
+    public void setFieldName(String name) {
         driver.findElement(fieldName).clear();
         driver.findElement(fieldName).sendKeys(name);
     }
 
-    public void setFieldSurName(String surName){
+    public void setFieldSurName(String surName) {
         driver.findElement(fieldLastName).clear();
         driver.findElement(fieldLastName).sendKeys(surName);
     }
 
-    public void setFieldAdress(String adress){
+    public void setFieldAdress(String adress) {
         driver.findElement(fieldAdress).clear();
         driver.findElement(fieldAdress).sendKeys(adress);
     }
 
-    public void setFieldMetro(String metro){
+    public void setFieldMetro(String metro) {
         driver.findElement(fieldMetro).clear();
         driver.findElement(fieldMetro).sendKeys(metro);
     }
 
-    public void setFieldTelefon(String phone){
+    public void setFieldTelefon(String phone) {
         driver.findElement(fieldPhone).clear();
         driver.findElement(fieldPhone).sendKeys(phone);
     }
