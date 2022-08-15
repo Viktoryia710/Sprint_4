@@ -7,8 +7,10 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.Keys;
-import yandex_practicum_sprint4.orderPage;
-import yandex_practicum_sprint4.rentPage;
+import yandex_practicum_sprint4.OrderPage;
+import yandex_practicum_sprint4.RentPage;
+import yandex_practicum_sprint4.OrderPage;
+import yandex_practicum_sprint4.RentPage;
 import yandex_practicum_sprint4.HomePage;
 
 @RunWith(Parameterized.class)
@@ -38,9 +40,9 @@ public class TestOrderButtonUpPageChrome {
 
     @Parameterized.Parameters // добавили аннотацию
     public static Object[][] getData() {
-        return new Object[][] {
-                { "Юрий","Горбунов","Санкт-Питербург","Минская","+7945454545","12.09.2022",0,0,"Проверка"},
-                { "Максим","Юрьев","Москва","Сокольники","+7976767676","10.09.2022",1,1,""},
+        return new Object[][]{
+                {"Юрий", "Горбунов", "Санкт-Питербург", "Минская", "+7945454545", "12.09.2022", 0, 0, "Проверка"},
+                {"Максим", "Юрьев", "Москва", "Сокольники", "+7976767676", "10.09.2022", 1, 1, ""},
         };
     }
 
@@ -50,8 +52,8 @@ public class TestOrderButtonUpPageChrome {
         // подключаемся к странице
         driver.get("https://qa-scooter.praktikum-services.ru/");
         HomePage objHomePage = new HomePage(driver);
-        orderPage objOrderPage = new orderPage(driver);
-        rentPage   objRentPage = new rentPage(driver);
+        OrderPage objOrderPage = new OrderPage(driver);
+        RentPage objRentPage = new RentPage(driver);
         // подтвержадем сбор куки
         objHomePage.clickCookieButton();
         // ждем кликабельности кнопки
@@ -62,12 +64,12 @@ public class TestOrderButtonUpPageChrome {
         objOrderPage.setFieldName(name);
         objOrderPage.setFieldSurName(surName);
         objOrderPage.setFieldAdress(adress);
-        objOrderPage.setFieldMetro(metro+ Keys.DOWN+ Keys.ENTER);
+        objOrderPage.setFieldMetro(metro + Keys.DOWN + Keys.ENTER);
         objOrderPage.setFieldTelefon(telefon);
         objOrderPage.clickButtonNext();
         // поля с аренды
         objRentPage.waitForLoadOrderPage();
-        objRentPage.setFieldData(data+ Keys.ENTER);
+        objRentPage.setFieldData(data + Keys.ENTER);
         objRentPage.setFieldPeriod(period);
         objRentPage.setFieldColor(color);
         objRentPage.setFieldComent(coment);
@@ -79,6 +81,7 @@ public class TestOrderButtonUpPageChrome {
         // ищем финальное окно
         objRentPage.setOrderModalFinal();
     }
+
     @After
     public void test1down() {
         // Закрываем браузер

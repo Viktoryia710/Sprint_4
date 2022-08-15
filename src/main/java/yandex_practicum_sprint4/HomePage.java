@@ -60,10 +60,10 @@ public class HomePage {
     //локатор ответ пункта 8 выпадающего списка в разделе «Вопросы о важном»
     private final By faqAnswerItem8 = By.xpath(".//div[@id = 'accordion__panel-7']/p");
 
-    // локатор копки заказать вверху страницы
+    // локатор кнопки заказать вверху страницы
     private final By orderButtonUpPage = By.className("Button_Button__ra12g");
 
-    // локатор копки заказать снизу страницы
+    // локатор кнопки заказать снизу страницы
     private final By orderButtonDownPageMidle = By.className("Button_Button__ra12g Button_Middle__1CSJM");
 
 
@@ -73,10 +73,11 @@ public class HomePage {
     }
 
     public void clickCookieButton() {
-        // получаем список элементов,если он не пустой
+        // получаем список элементов
         int i = driver.findElements(cookieButton).size();
-        if (i != 0)
+        if (i != 0) {
             driver.findElement(cookieButton).click();
+        }
     }
 
     // метод ожидания кликабильности списка «Вопросы о важном»
